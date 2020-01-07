@@ -4,9 +4,10 @@ Google Colaboratoryで実行します。Pythonのバージョンは`3.6.9`です
 
 [Google Colaboratory](https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja)
 
-詳細は公式ドキュメントを確認してください
+この資料以外の内容については公式ドキュメントを確認してください。
 
 [pythonドキュメント](https://docs.python.org/ja/3/index.html)
+
 
 ## アジェンダ
 
@@ -18,6 +19,7 @@ Google Colaboratoryで実行します。Pythonのバージョンは`3.6.9`です
 6. 関数
 7. クラス
 
+
 ## Hello World
 
 Pythonには組み込み関数として、インタープリタに出力する関数`print()`が用意されています。
@@ -26,12 +28,14 @@ Pythonには組み込み関数として、インタープリタに出力する�
 print('Hello World')
 ```
 
+
 ### 組み込み関数
 
 先ほど使用した`print()`関数は組み込み関数として用意されており、ライブラリを読み込むこと(import)なく実行することができます。
 このように、Pythonには型変換や計算式など多くの組み込み関数が用意されています。最新バージョンでは69個用意されています。
 
 [Python組み込み関数](https://docs.python.org/ja/3/library/functions.html)
+
 
 ## 文法基本
 
@@ -42,6 +46,7 @@ Pythonのコメントは`#`を使用します。
 `#`から行末までがコメントとして認識されます。
 
 ```python
+# Hello World
 print('Hello World') # Hello World
 print('Hello World') # Hello World # print('Hello World')
 ```
@@ -57,6 +62,7 @@ def function(args):
     '''
     return args
 ```
+
 
 ### インデント
 
@@ -85,6 +91,7 @@ if a == b:
 
 Pythonのコーディング規約であるPEP8には、１レベルのインデントにはスペースを4つ使用すると定められています。
 
+
 ### 命名規則
 
 変数名や関数名は、スネークケースで宣言します。
@@ -92,7 +99,15 @@ Pythonのコーディング規約であるPEP8には、１レベルのインデ�
 クラス名は、キャメルケースで宣言するします。
 
 ```python
+python_name = 'python'
+
+def python_version():
+    return '3.8.1'
+
+class PythonClass():
+
 ```
+
 
 ### 標準モジュール（標準ライブラリ）
 
@@ -107,6 +122,7 @@ print(sys.version)
 
 [Python標準ライブラリ](https://docs.python.org/ja/3/library/index.html)
 
+
 ### コーディング規約
 
 Pythonには`PEP8`というコーディング規約が用意されています。
@@ -119,31 +135,32 @@ Pythonには`PEP8`というコーディング規約が用意されています�
 
 などの規約が定められている。
 
+
 ## 変数とデータ型
 
 Pythonのデータ型は組み込み型として定義されています。
 
 [Python組み込み型](https://docs.python.org/ja/3/library/stdtypes.html#)
 
-### type・isinstance
+### type()・isinstance()
 
 変数やオブジェクトの型を取得し確認するために、組み込み関数として`type()`が用意されています。
 
 ```python
-print(type(5))
+print(type(5)) # <class 'int'>
 
-print(type('abc'))
+print(type('abc')) # <class 'str'>
 
-print(type(True))
+print(type(True)) # <class 'bool'>
 ```
 
 変数やオブジェクトの型を判定するために、組み込み関数`isinstance()`が用意されています。
 第一引数のオブジェクトが、第二引数の型のインスタンスかもしくはサブクラスのインスタンスであれば`True`を返します。
 
 ```python
-print(isinstance('10', int))
+print(isinstance('10', int)) # False
 
-print(isinstance(False, bool))
+print(isinstance(False, bool)) # True
 ```
 
 ### 数値型
@@ -157,17 +174,17 @@ Pythonの数値型には、整数・小数・複素数があります。
 # 整数 int
 i = 10
 print(i)
-print(type(i))
+print(type(i)) # <class 'int'>
 
 # 小数 float
 f = 3.14
 print(f)
-print(type(f))
+print(type(f)) # <class 'float'>
 
 # 複素数 complex
 c = 5 + 3j # 虚部はiではなくjで表現
 print(c)
-print(type(c))
+print(type(c)) # <class 'complex'>
 
 ```
 
@@ -176,11 +193,11 @@ print(type(c))
 | 演算 | 結果 |
 | --- | --- |
 | x + y | xとyの和 |
-| x - y | xとyの和 |
-| x * y | xとyの和 |
-| x / y | xとyの和 |
-| x // y | xとyの和 |
-| x % y | xとyの和 |
+| x - y | xとyの差 |
+| x * y | xとyの積 |
+| x / y | xとyの商 |
+| x // y | xとyの切り捨てた商 |
+| x % y | xをyで割った余り |
 | x**y | xのy乗 |
 | x+=1 | xのインクリント |
 | y-=1 | yのデクリメント |
@@ -188,15 +205,19 @@ print(type(c))
 ```python
 x = 30
 y = 1.5
+z = 1.3
 
-print(x + y)
-print(x - y)
-print(x * y)
-print(x / y)
-print(x // y)
-print(x % y)
-print(x+=1)
-print(y-=1)
+print(x + y) # 31.5
+print(x - y) # 28.5
+print(x * y) # 45.0
+print(x / y) # 23.076923076923077
+print(x // z) # 23.0
+print(x % z) # 0.09999999999999898
+print(x ** 2) # 900
+x+=1
+print(x) # 31
+y-=1
+print(y) # 0.5
 ```
 
 ### 文字列
@@ -205,7 +226,7 @@ Pythonの文字列は`str`型として定義されています。
 
 [Python文字列](https://docs.python.org/ja/3/library/stdtypes.html#text-sequence-type-str)
 
-文字列の定義は以下の3つの方法があります。
+文字列の定義方法は以下の3つの方法があります。
 
 - シングルコーテーション：`'abc'`
 - ダブルコーテーション：`"abc"`
@@ -219,10 +240,10 @@ Pythonの文字列は`str`型として定義されています。
 
 ```python
 a = '"abc"'
-print(a)
+print(a) # "abc"
 
 b = "'abc'"
-print(b)
+print(b) # 'abc'
 
 c = '''
 abc
@@ -230,6 +251,10 @@ def
 ghi
 '''
 print(c)
+#
+# abc
+# def
+# ghi
 ```
 
 文字列のトリミングは`[:]`で行うことができます。
@@ -237,11 +262,16 @@ print(c)
 ```python
 a = 'abcdefg'
 
-print(a[:])
-print(a[2:5])
-print(a[:4])
-print(a[3:])
-print(a[:-1])
+# 全て
+print(a[:]) # abcdefg
+# 2から4まで
+print(a[2:5]) # cde
+# 先頭から3まで
+print(a[:4]) # abcd
+# 3から末尾まで
+print(a[3:]) # defg
+# 先頭から末尾の1つ前まで
+print(a[:-1]) # abcdef
 ```
 
 文字列には便利なメソッドが実装されています。
@@ -260,10 +290,11 @@ Pythonの真偽値は`bool`型として定義されています。
 ```python
 t = True
 f = False
-print(t)
-print(int(t))
-print(f)
-print(int(f))
+
+print(t) # True
+print(int(t)) # 1
+print(f) # False
+print(int(f)) # 0
 ```
 
 #### ブール演算・比較演算子
@@ -286,14 +317,18 @@ print(int(f))
 x = 10
 y = 10.0
 
-print(x)
-print(type(x))
-print(y)
-print(type(y))
-print(x == y)
-print(x != y)
-print(x is y)
-print(x is not y)
+print(x) # 10
+print(type(x)) # <class 'int'>
+print(y) # 10.0
+print(type(y)) # <class 'float'>
+
+# 等価
+print(x == y) # True
+print(x != y) # False
+
+# 同値
+print(x is y) # False
+print(x is not y) # True
 ```
 
 ### None
@@ -303,9 +338,13 @@ Pythonでnullオブジェクトを表現する場合は、`None`を使用しま�
 ```python
 n = None
 
-print(n)
-print(bool(n))
+print(n) # None
+print(bool(n)) # False
+
+print(n is None) # True
 ```
+
+Noneの比較は通常は比較演算子`is`を使用します。
 
 ## 制御構文
 
@@ -326,12 +365,12 @@ if文のスコープはインデントで表現します。
 `else if`は`elif`と表現します。
 比較演算子やブール演算子をしようして条件式を記述します。
 
- ```python
- name = 'John'
- age = 20
- license = True
+```python
+name = 'John'
+age = 20
+license = True
 
- if age >= 20 and license:
+if age >= 20 and license:
     print('OK')
 else:
     print('NG')
@@ -349,9 +388,11 @@ for 変数 in シーケンス:
 組み込み関数で用意されている`range`関数を使用することで、指定した数値の範囲のシーケンスを作成することができます。
 
 ```python
+# 0 1 2 3 4
 for num in range(5):
     print(num)
 
+# a b c d e f g
 for string in 'abcdefg':
     print(string)
 ```
@@ -375,11 +416,11 @@ for n in range(1,10):
 何も処理をしたくない場合は`pass`文を使用することで、処理をスキップすることができます。
 
 ```python
- name = 'John'
- age = 20
- license = True
+name = 'John'
+age = 20
+license = True
 
- if age >= 20 and license:
+if age >= 20 and license:
     pass
 else:
     print('NG')
@@ -400,6 +441,7 @@ for文ではin文で要素を取り出すことができます。組み込み関
 ネストしたリストも作成可能です。
 
 ```python
+# リストの宣言
 num_list = [1,2,3,4,5]
 str_list = list('abcdefg')
 
@@ -469,9 +511,10 @@ Key,Valueの組み合わせのデータ構造をPythonでは辞書型といい�
 
 辞書型へのアクセスは、`dict[key]`で行うことができます。
 
-for文ではin文で辞書型のKeyを取得することができます。辞書型の`items`関数を使用することでKeyとValueを取り出すことができます。
+for文ではin文で辞書型のKeyを取得することができます。辞書型の`items`関数を使用することでKeyとValueのイテレータが取得できます。
 
 ```python
+# 辞書型の宣言
 num_map = {5:1,4:2,3:3,2:4,1:5}
 str_map = dict(a='abc', b='efg', c='hij')
 
@@ -526,17 +569,18 @@ def func1(a, b):
     return a + b
 
 
-print(func1('Hello', 'World'))
+print(func1('Hello', 'World')) # HelloWorld
 
 
 def func2(a, b):
     if a % 2 == 0:
-        return [a, b]
+        return [a, b], 'OK'
     else:
         return 'NG'
 
-print(func2(1,2))
-print(func2(4,3))
+print(func2(1,2)) # NG
+print(func2(4,3)) # ([4,3],'OK')
+l, s = func2(4,3)
 ```
 
 ### 引数
@@ -550,8 +594,8 @@ def func1(num, string, option=True, message='default'):
     print(num, string, option, message)
 
 
-func1(10, 'Hello')
-func1(20, 'World', False, 'function')
+func1(10, 'Hello') # 10 Hello True default
+func1(20, 'World', False, 'function') # 20 World False function
 ```
 
 #### キーワード引数
@@ -562,7 +606,7 @@ func1(20, 'World', False, 'function')
 def func1(num, string, option=True, message='default'):
     print(num, string, option, message)
 
-func1(30, 'Python', message='key word')
+func1(30, 'Python', message='key word') # 30 Python True key word
 ```
 
 #### 可変長引数
@@ -570,13 +614,13 @@ func1(30, 'Python', message='key word')
 Pythonで可変長引数を指定する場合は`*`を使用します。引数はタプルとして受け取ります。
 
 ```python
-def sum(*args):
+def total(*args):
     result = 0
     for e in args:
         result += e
     return result
 
-print(sum(1,2,3,4,5))
+print(total(1,2,3,4,5))
 ```
 
 #### 可変長キーワード引数
@@ -622,3 +666,5 @@ for i in range(5):
     car2.move()
 print(car1.CLASS_NAME)
 ```
+
+[Pythonクラス](https://docs.python.org/ja/3/tutorial/classes.html)
