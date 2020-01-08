@@ -18,6 +18,7 @@ Google Colaboratoryで実行します。Pythonのバージョンは`3.6.9`です
 5. データ構造
 6. 関数
 7. クラス
+8. 演習問題
 
 
 ## Hello World
@@ -372,9 +373,9 @@ age = 20
 license = True
 
 if age >= 20 and license:
-    print('OK')
+    print(name + ' OK')
 else:
-    print('NG')
+    print(nae + ' NG')
 ```
 
 ### for文
@@ -424,7 +425,7 @@ license = True
 if age >= 20 and license:
     pass
 else:
-    print('NG')
+    print(name + ' NG')
 ```
 
 ## データ構造
@@ -448,6 +449,9 @@ str_list = list('abcdefg')
 
 print(num_list)
 print(str_list)
+
+print(num_list[4])
+print(str_list[2:5])
 
 for num in num_list:
     print(num)
@@ -569,7 +573,6 @@ Pythonではdefキーワードを使用して関数を定義します。defキ�
 def func1(a, b):
     return a + b
 
-
 print(func1('Hello', 'World')) # HelloWorld
 
 
@@ -669,3 +672,7 @@ print(car1.CLASS_NAME)
 ```
 
 [Pythonクラス](https://docs.python.org/ja/3/tutorial/classes.html)
+
+## 演習問題
+
+[演習問題](https://github.com/txkxyx/PythonStudyGroup/blob/master/problem.md)
