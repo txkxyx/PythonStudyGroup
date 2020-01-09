@@ -142,6 +142,14 @@ Pythonには`PEP8`というコーディング規約が用意されています�
 
 Pythonのデータ型は組み込み型として定義されています。
 
+- 数値型
+- 文字列型
+- バイト型
+- リスト型
+- 辞書型
+- タプル型
+- 集合型
+
 [Python組み込み型](https://docs.python.org/ja/3/library/stdtypes.html#)
 
 ### type()・isinstance()
@@ -328,7 +336,7 @@ print(type(y)) # <class 'float'>
 print(x == y) # True
 print(x != y) # False
 
-# 同値
+# オブジェクトの比較
 print(x is y) # False
 print(x is not y) # True
 ```
@@ -646,6 +654,8 @@ Pythonのクラスclassキーワードを使用して、以下のように定義
 
 `__init__`関数でコンストラクタを宣言することができます。コンストラクタでインスタンス変数を設定できます。
 
+[Pythonクラス](https://docs.python.org/ja/3/tutorial/classes.html)
+
 ```python
 
 class Car:
@@ -671,7 +681,101 @@ for i in range(5):
 print(car1.CLASS_NAME)
 ```
 
-[Pythonクラス](https://docs.python.org/ja/3/tutorial/classes.html)
+### 継承
+
+Pythonでクラスの継承を行う場合は、`class クラス名(基底クラス):`で宣言します。
+
+```python
+
+class Car:
+    def __init__(self, name, gas):
+        self.name = name
+        self.gas = gas
+    
+    def move(self):
+        if self.gas > 0:
+            self.gas -= 1
+            print(self.name + ' move')
+        else:
+            print(self.name + ' stop')
+
+class Truck(Car):
+    def move(self):
+        if self.gas > 0:
+            self.gas -= 2
+            print(self.name + ' move')
+        else:
+            print(self.name + ' stop')
+
+car = Car('car', 10)
+truck = Truck('truck', 10)
+
+car.move()
+truck.move()
+
+print(car.gas)
+print(truck.gas)
+```
+
+基底クラスを継承したクラスは、基底クラスで宣言した変数と関数を引き継ぐことができます。
+基底クラスと同じシグネチャで関数を宣言すると、オーバーライドすることができます。
+
+
+### 多重継承
+
+Pythonでは多重継承で複数の基底クラスを継承することができます。
+多重継承をする場合は、基底クラス名を`,`区切りて定義します。
+
+```python
+
+class A:
+    def func(self):
+        print('A')
+
+class B:
+    def func(self):
+        print('B')
+
+class C(A,B):
+    pass
+
+class D(B,A):
+    pass
+
+c = C()
+d = D()
+
+c.func()
+d.func()
+```
+
+多重継承した基底クラスの関数のシグネチャが等しい場合は、先に継承したクラスの関数が優先されます。
+
+### private・publicな変数と関数
+
+Pythonのクラスでは、変数と関数をカプセル化することができます。
+Pythonで変数や関数を隠蔽する場合は、名前の前に`__`(_を2つ)をつけて定義します。
+
+```python
+
+class X:
+    __private = 'private'
+    public = 'public'
+
+    def __private_method(self):
+        print(self.__private)
+        print(self.public)
+    
+    def public_method(self):
+        self.__private_method()
+
+x = X()
+
+# print(x.__private) 
+print(x.public)
+# x.__private_method()
+x.public_method()
+```
 
 ## 演習問題
 

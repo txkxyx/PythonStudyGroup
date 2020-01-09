@@ -52,6 +52,10 @@ for num in x:
 # 分散
 variance = sum(squared_diff) / len(squared_diff)
 print(variance)
+
+# リスト内包表記でも
+variance = sum([(num-avarage)**2 for num in x]) / len(x)
+print(variance)
 ```
 
 4. 標準偏差を求めてください
