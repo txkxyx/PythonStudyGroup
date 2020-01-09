@@ -65,14 +65,8 @@ x = [80, 82, 65, 45, 72, 66, 68, 90, 83, 77]
 
 # 平均
 avarage = sum(x) / len(x)
-
-# 平均との差の２乗のリスト
-squared_diff = []
-for num in x:
-    squared_diff.append((num - avarage) ** 2)
-
 # 分散
-variance = sum(squared_diff) / len(squared_diff)
+variance = sum([(num-avarage)**2 for num in x]) / len(x)
 # 標準偏差
 std = variance ** 0.5
 print(std)
