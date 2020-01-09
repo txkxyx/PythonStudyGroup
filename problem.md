@@ -32,3 +32,23 @@
 
 >  {'Python': ['2.7', '3.6', '3.8'], 'Java': ['8', '11']}
 
+## 問題3
+
+y = x^2 + 2x + 1　を x = 1 において微分する関数numerical_diffを定義してください。
+
+ヒント1
+
+![微分](img/numerical_diff.png)
+
+ヒント2
+```python
+def numerical_diff(???):
+    h = 0.00000000001
+    ???
+
+def func(x):
+    return ???
+
+result = numerical_diff(func, 1)
+print(result)
+```

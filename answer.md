@@ -101,3 +101,19 @@ for e in x:
 
 print(result)
 ```
+
+## 問題3
+
+y = x^2 + 2x + 1　を x = 1 において微分する関数numerical_diffを定義してください。
+
+```python
+def numerical_diff(f, x):
+    h = 0.00000000001
+    return (f(x + h) -f(x)) / h
+
+def func(x):
+    return x**2 + 2*x + 1
+
+result = numerical_diff(func, 1)
+print(result)
+```
