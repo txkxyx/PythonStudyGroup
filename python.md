@@ -2,7 +2,7 @@
 
 Google Colaboratoryで実行します。Pythonのバージョンは`3.6.9`です。
 
-![Google Colaboratory](https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja)
+[Google Colaboratory](https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja)
 
 > command + Enter　→　実行
 >
@@ -12,7 +12,7 @@ Google Colaboratoryで実行します。Pythonのバージョンは`3.6.9`です
 
 この資料以外の内容については公式ドキュメントを確認してください。
 
-![pythonドキュメント](https://docs.python.org/ja/3/index.html)
+[pythonドキュメント](https://docs.python.org/ja/3/index.html)
 
 
 ## アジェンダ
@@ -41,7 +41,7 @@ print('Hello World')
 先ほど使用した`print()`関数は組み込み関数として用意されており、ライブラリを読み込むこと(import)なく実行することができます。
 このように、Pythonには型変換や計算式など多くの組み込み関数が用意されています。最新バージョンでは69個用意されています。
 
-![Python組み込み関数](https://docs.python.org/ja/3/library/functions.html)
+[Python組み込み関数](https://docs.python.org/ja/3/library/functions.html)
 
 
 ## 文法基本
@@ -130,14 +130,14 @@ import sys
 print(sys.version)
 ```
 
-![Python標準ライブラリ](https://docs.python.org/ja/3/library/index.html)
+[Python標準ライブラリ](https://docs.python.org/ja/3/library/index.html)
 
 
 ### コーディング規約
 
 Pythonには`PEP8`というコーディング規約が用意されています。
 
-![PEP8](https://pep8-ja.readthedocs.io/ja/latest/)
+[PEP8](https://pep8-ja.readthedocs.io/ja/latest/)
 
 - インデントは半角スペース4つで統一する
 - 1行の長さは半角79文字以内に制限する
@@ -159,7 +159,7 @@ Pythonのデータ型は組み込み型として定義されています。
 - 集合型
 - ブール型
 
-![Python組み込み型](https://docs.python.org/ja/3/library/stdtypes.html#)
+[Python組み込み型](https://docs.python.org/ja/3/library/stdtypes.html#)
 
 ### type()・isinstance()
 
@@ -186,7 +186,7 @@ print(isinstance(False, bool)) # True
 
 Pythonの数値型には、整数・小数・複素数があります。
 
-![Python数値型](https://docs.python.org/ja/3/library/stdtypes.html#numeric-types-int-float-complex)
+[Python数値型](https://docs.python.org/ja/3/library/stdtypes.html#numeric-types-int-float-complex)
 
 ```python
 
@@ -214,9 +214,9 @@ print(type(c)) # <class 'complex'>
 | x + y | xとyの和 |
 | x - y | xとyの差 |
 | x * y | xとyの積 |
-| x / y | xとyの商 |
-| x // y | xとyの切り捨てた商 |
-| x % y | xをyで割った余り |
+| x / y | xとyの割り算 |
+| x // y | xとyの割り算の商 |
+| x % y | xをyの割り算の余り |
 | x ** y | xのy乗 |
 | x += 1 | xのインクリント |
 | y -= 1 | yのデクリメント |
@@ -243,7 +243,7 @@ print(y) # 0.5
 
 Pythonの文字列は`str`型として定義されています。
 
-![Python文字列](https://docs.python.org/ja/3/library/stdtypes.html#text-sequence-type-str)
+[Python文字列](https://docs.python.org/ja/3/library/stdtypes.html#text-sequence-type-str)
 
 文字列の定義方法は以下の3つの方法があります。
 
@@ -297,7 +297,7 @@ print(a[:-1]) # abcdef
 
 文字列には、フォーマット指定・分割・置換などのメソッドが実装されています。
 
-![文字列メソッド](https://docs.python.org/ja/3/library/stdtypes.html#string-methods)
+[文字列メソッド](https://docs.python.org/ja/3/library/stdtypes.html#string-methods)
 
 ### ブール値
 
@@ -424,7 +424,7 @@ for i, string in enumerate('abcdefg'):
 
 ループで使用するテクニックがチュートリアルで紹介されています。
 
-![ループのテクニック](https://docs.python.org/ja/3/tutorial/datastructures.html#looping-techniques)
+[ループのテクニック](https://docs.python.org/ja/3/tutorial/datastructures.html#looping-techniques)
 
 ### break・pass
 
@@ -487,7 +487,7 @@ nest_list = [[1,2,3],['a','b','c']]
 
 リストにも多数のメソッドが実装されています。
 
-![list関数](https://docs.python.org/ja/3/tutorial/datastructures.html#more-on-lists)
+[list関数](https://docs.python.org/ja/3/tutorial/datastructures.html#more-on-lists)
 
 ```python
 num_list = [1,2,3,4,5]
@@ -523,7 +523,7 @@ print(z)
 
 Pythonにはリストを作成する上でリスト内包表記という構文が用意されています。
 
-![リスト内包表記](https://docs.python.org/ja/3/tutorial/datastructures.html#list-comprehensions)
+[リスト内包表記](https://docs.python.org/ja/3/tutorial/datastructures.html#list-comprehensions)
 
 ```python
 # 2乗のリストを作成
@@ -579,7 +579,7 @@ print('b' in str_map)
 
 リスト同様に辞書型にも関数が用意されています。
 
-![dict関数](https://docs.python.org/ja/3/library/stdtypes.html#mapping-types-dict)
+[dict関数](https://docs.python.org/ja/3/library/stdtypes.html#mapping-types-dict)
 
 辞書型内包表記もあります。
 
@@ -709,7 +709,7 @@ Pythonのクラスclassキーワードを使用して、以下のように定義
 
 `__init__`関数でコンストラクタを宣言することができます。コンストラクタでインスタンス変数を設定できます。
 
-![Pythonクラス](https://docs.python.org/ja/3/tutorial/classes.html)
+[Pythonクラス](https://docs.python.org/ja/3/tutorial/classes.html)
 
 ```python
 
@@ -834,6 +834,6 @@ x.public_method()
 
 ## 演習問題
 
-![演習問題](problem.md)
+[演習問題](problem.md)
 
-![演習問題解答](answer.md)
+[演習問題解答](answer.md)
