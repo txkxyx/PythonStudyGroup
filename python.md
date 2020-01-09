@@ -4,6 +4,12 @@ Google Colaboratoryで実行します。Pythonのバージョンは`3.6.9`です
 
 [Google Colaboratory](https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja)
 
+> command + Enter　→　実行
+>
+> command + M , B　→　新しいコードの作成
+>
+> command + M , D　→　現在のコードの削除
+
 この資料以外の内容については公式ドキュメントを確認してください。
 
 [pythonドキュメント](https://docs.python.org/ja/3/index.html)
@@ -52,7 +58,7 @@ print('Hello World') # Hello World
 print('Hello World') # Hello World # print('Hello World')
 ```
 
-トリプルクォートによるコメントアウトを使用することもできますが、基本的にはpydocなどのドキュメント文字列にしか使用しません。
+トリプルクォート(`'''`もしくは`"""`)によるコメントアウトを使用することもできますが、基本的にはpydocなどのドキュメント文字列にしか使用しません。
 
 ```python
 def function(args):
@@ -107,6 +113,7 @@ def python_version():
     return '3.8.1'
 
 class PythonClass():
+    pass
 
 ```
 
@@ -117,6 +124,7 @@ Pythonには標準モジュールライブラリと呼ばれるモジュール�
 ライブラリを使用する場合は組み込み関数とは異なり、明示的にライブラリを読み込む(import)する必要があります。
 
 ```python
+# 実行環境に関する情報を扱うライブラリ
 import sys
 
 print(sys.version)
@@ -149,6 +157,7 @@ Pythonのデータ型は組み込み型として定義されています。
 - 辞書型
 - タプル型
 - 集合型
+- ブール型
 
 [Python組み込み型](https://docs.python.org/ja/3/library/stdtypes.html#)
 
@@ -208,9 +217,9 @@ print(type(c)) # <class 'complex'>
 | x / y | xとyの商 |
 | x // y | xとyの切り捨てた商 |
 | x % y | xをyで割った余り |
-| x**y | xのy乗 |
-| x+=1 | xのインクリント |
-| y-=1 | yのデクリメント |
+| x ** y | xのy乗 |
+| x += 1 | xのインクリント |
+| y -= 1 | yのデクリメント |
 
 ```python
 x = 30
@@ -224,9 +233,9 @@ print(x / y) # 23.076923076923077
 print(x // z) # 23.0
 print(x % z) # 0.09999999999999898
 print(x ** 2) # 900
-x+=1
+x += 1
 print(x) # 31
-y-=1
+y -= 1
 print(y) # 0.5
 ```
 
@@ -247,6 +256,8 @@ Pythonの文字列は`str`型として定義されています。
 ダブルコーテーションで囲んだ文字列の中には、シングルコーテーションを定義することができます。
 
 トリプルクォートで囲まれた文字列は、リテラルとして扱われます。
+
+文字列のエスケープは、`\`で行うことができます。リテラルの先頭の改行を消す際も、`\`を用います。
 
 ```python
 a = '"abc"'
@@ -284,7 +295,7 @@ print(a[3:]) # defg
 print(a[:-1]) # abcdef
 ```
 
-文字列には便利なメソッドが実装されています。
+文字列には、フォーマット指定・分割・置換などのメソッドが実装されています。
 
 [文字列メソッド](https://docs.python.org/ja/3/library/stdtypes.html#string-methods)
 
@@ -343,7 +354,7 @@ print(x is not y) # True
 
 ### None
 
-Pythonでnullオブジェクトを表現する場合は、`None`を使用します。
+PythonでNullオブジェクトを表現する場合は、`None`を使用します。
 
 ```python
 n = None
@@ -373,7 +384,7 @@ else:
 
 if文のスコープはインデントで表現します。
 `else if`は`elif`と表現します。
-比較演算子やブール演算子をしようして条件式を記述します。
+比較演算子やブール演算子を用いて条件式を記述します。
 
 ```python
 name = 'John'
@@ -384,6 +395,8 @@ if age >= 20 and license:
     print(name + ' OK')
 else:
     print(nae + ' NG')
+
+# John OK
 ```
 
 ### for文
@@ -397,14 +410,16 @@ for 変数 in シーケンス:
 
 組み込み関数で用意されている`range`関数を使用することで、指定した数値の範囲のシーケンスを作成することができます。
 
+組み込み関数の`enumerate`関数を使用することでインデックスと要素の順でを取り出すことができます。
+
 ```python
 # 0 1 2 3 4
 for num in range(5):
     print(num)
 
-# a b c d e f g
-for string in 'abcdefg':
-    print(string)
+# 0:a 1:b 2:c 3:d 4:e 5:f 6:g
+for i, string in enumerate('abcdefg'):
+    print(str(i) + ':' + string)
 ```
 
 ループで使用するテクニックがチュートリアルで紹介されています。
@@ -455,11 +470,11 @@ for文ではin文で要素を取り出すことができます。組み込み関
 num_list = [1,2,3,4,5]
 str_list = list('abcdefg')
 
-print(num_list)
-print(str_list)
+print(num_list) # [1, 2, 3, 4, 5]
+print(str_list) # ['a', 'b', 'c', 'd', 'e', 'f', 'g']
 
-print(num_list[4])
-print(str_list[2:5])
+print(num_list[4]) # 5
+print(str_list[2:5]) # ['c', 'd', 'e']
 
 for num in num_list:
     print(num)
@@ -511,8 +526,19 @@ Pythonにはリストを作成する上でリスト内包表記という構文�
 [リスト内包表記](https://docs.python.org/ja/3/tutorial/datastructures.html#list-comprehensions)
 
 ```python
+# 2乗のリストを作成
 num_list = [1,2,3,4]
-env_list = [e**2 for e in num_list]
+square_list= []
+for num in num_list:
+    square_list.append(num**2)
+print(square_list)
+# リスト内包表記
+square_list = [e**2 for e in num_list]
+print(square_list)
+
+# 奇数は0に置換したリストを作成
+num_list = [1,2,3,4,5,6,7,8,9]
+env_list = [e if e % 2 ==0 else 0 for e in num_list]
 print(env_list)
 ```
 
@@ -524,15 +550,20 @@ Key,Valueの組み合わせのデータ構造をPythonでは辞書型といい�
 
 辞書型へのアクセスは、`dict[key]`で行うことができます。
 
-for文ではin文で辞書型のKeyを取得することができます。辞書型の`items`関数を使用することでKeyとValueのイテレータが取得できます。
+for文ではin文で辞書型のKeyを取得することができます。
+
+辞書型の`items()`関数を使用することでKeyとValueのイテレータが取得できます。
 
 ```python
 # 辞書型の宣言
 num_map = {5:1,4:2,3:3,2:4,1:5}
 str_map = dict(a='abc', b='efg', c='hij')
 
-print(num_map[2])
-print(str_map['b'])
+print(num_map) # {5: 1, 4: 2, 3: 3, 2: 4, 1: 5}
+print(str_map) # {'a': 'abc', 'b': 'efg', 'c': 'hij'}
+
+print(num_map[2]) # 4
+print(str_map['b']) # efg
 
 for key in num_map:
     print(num_map[key])
@@ -550,26 +581,50 @@ print('b' in str_map)
 
 [dict関数](https://docs.python.org/ja/3/library/stdtypes.html#mapping-types-dict)
 
+辞書型内包表記もあります。
+
+```python
+num_list = [1,2,3,4,5]
+num_dict = {}
+for num in num_list:
+    num_dict[str(num)] = num
+print(num_dict)
+
+# 辞書型内包表記
+num_dict = {str(num):num for num in num_list}
+print(num_dict)
+```
+
 ### その他のデータ構造
 
 イミュータブルなリストとしてタプルが用意されています。定数を定義する際に使用されます。
 
 ```python
 t = 'abc', 123, True
-print(t)
+
+print(t) # ('abc', 123, True)
+print(t[2]) # True
+
 for e in t:
     print(e)
+
+# t[2] = False
 ```
 
 重複する要素を持たない集合体として`set`オブジェクトが用意されています。
 
 ```python
 s = {'abc', 'def', 1234}
+
 print(s)
+# print(s[2])
+
 for e in s:
     print(e)
-```
 
+print('abc' in s)
+print(5324 in s)
+```
 
 ## 関数
 
@@ -618,7 +673,7 @@ func1(20, 'World', False, 'function') # 20 World False function
 def func1(num, string, option=True, message='default'):
     print(num, string, option, message)
 
-func1(30, 'Python', message='key word') # 30 Python True key word
+func1(string='Python', num=30, message='key word') # 30 Python True key word
 ```
 
 #### 可変長引数
@@ -779,4 +834,6 @@ x.public_method()
 
 ## 演習問題
 
-[演習問題](https://github.com/txkxyx/PythonStudyGroup/blob/master/problem.md)
+[演習問題](problem.md)
+
+[演習問題解答](answer.md)
