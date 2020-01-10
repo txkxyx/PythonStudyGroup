@@ -278,7 +278,7 @@ print(c)
 # ghi
 ```
 
-文字列のトリミングは`[:]`で行うことができます。
+文字列のトリミングは`[start:end]`で行うことができます。
 
 ```python
 a = 'abcdefg'
@@ -431,9 +431,9 @@ for i, string in enumerate('abcdefg'):
 ループ内で`break`文を使用することでループを中断することができます。
 
 ```python
-for n in range(1,10):
-    for x in range(1,n):
-        print(x)
+for n in range(1,11):
+    for x in range(1,n + 1):
+        print(n)
         if x > n:
             break
 ```
